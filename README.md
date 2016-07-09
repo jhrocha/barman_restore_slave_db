@@ -1,0 +1,1 @@
+# barman_restore_slave_db
