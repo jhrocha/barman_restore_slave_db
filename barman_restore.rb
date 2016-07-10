@@ -16,5 +16,10 @@ Open3.popen3(cmd) do |stdin, stdout, stderr, wait_thr|
     puts "[RESTORE DATABASE] Restoring slave database from backup #{latestVersionID}"
     puts "stout: #{stdout.read}"
     puts "sterr: #{stderr.read}"
+    puts "[RESTART DATABASE] Restarting slave databse"
+    Open3.popen3("ssh your_user@host'service postgresql restart'") do |stdin, stdout, stderr, wait_thr|
+     puts "stdout: #{stdout.read}"
+     puts "stderr: #{stderr.read}"
+    end
    end
   end
